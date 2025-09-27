@@ -6,7 +6,7 @@ The control scheme integrates a **Genetic Algorithm (GA)** optimization and **Ra
 
 ---------------------------------------
 
-## ⚙️ Fault Describption and Dynamics
+## ⚙️ Fault Description and Dynamics
 
 During flight or maneuvering, a drone may inevitably experience structural damage due to collisions with rigid objects, such as another UAV, a tree, or even an obstacle. Such incidents may cause one of the thrust forces of the drone to no longer operate in a vertical direction. It is important to emphasize that this collision does not necessarily degrade the motor efficiency but merely alters its orientation. The angles of deviation caused by such collision are demonstrated in Figure.
 The Assumptions regarding the mathematical modeling are described as follows:
@@ -45,7 +45,7 @@ and fault related terms regarding the fault angles $\alpha$, $\beta$, and $\gamm
 
 $$
 \begin{aligned}
-f_1 &= \sin\alpha \sin\gamma \\
+f_1 &= \sin\alpha\, \sin\gamma \\
 f_2 &= -\cos\gamma \sin\beta + \sin\gamma \cos\beta \cos\alpha \\
 f_3 &= \cos\beta \cos\gamma + \cos\alpha \sin\beta \sin\gamma - 1 \\
 f_4 &= f_2 \sin\beta - (1 + f_3) \cos\beta + 1 \\
