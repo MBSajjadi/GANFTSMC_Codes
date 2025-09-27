@@ -45,7 +45,7 @@ and fault related terms regarding the fault angles $\alpha$, $\beta$, and $\gamm
 
 $$
 \begin{aligned}
-f_1 &= \sin\alpha\, \sin\gamma \\
+f_1 &= \sin\alpha \sin\gamma \\
 f_2 &= -\cos\gamma \sin\beta + \sin\gamma \cos\beta \cos\alpha \\
 f_3 &= \cos\beta \cos\gamma + \cos\alpha \sin\beta \sin\gamma - 1 \\
 f_4 &= f_2 \sin\beta - (1 + f_3) \cos\beta + 1 \\
