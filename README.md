@@ -1,2 +1,5 @@
-The Genetic Algorithm is first run based on the minimization of the cost function for 50 seconds, with a sampling time of 0.001. After the optimization process is finished, the optimal values of gains Eta and K are used in the controller to reduce the overshoots and control efforts. To see the system states and 3D trajectory of the faulty quadrotor, You can use the main code called "Main_RBFFNN_GANFTSMC". However, to compare results with NFTSMC, You may run the function called "PlotComparedResults_GANFTSMC_NFTSMC".
-The "Final_SecondTrajectory.m" file corresponds to the results of Disturbance-Observer-Based TSMC for the sake of comparison. One can run this code to see the results of the controller.
+Fault-Tolerant Quadrotor Control Using Genetic Algorithm Optimized Terminal Sliding Mode Control
+
+This repository presents the design and implementation of a Fault-Tolerant Terminal Sliding Mode Control (TSMC) for a quadrotor UAV subject to structural anomalies, specifically rotor thrust deviation faults.
+
+The control scheme integrates a Genetic Algorithm (GA) to optimize the controller parameters, reducing overshoot and minimizing control efforts. Additionally, comparisons with standard Nonsingular Fast Terminal Sliding Mode Control (NFTSMC) and Disturbance-Observer-Based TSMC are provided.
