@@ -60,8 +60,8 @@ $$
 
 ## 🎯 Terminal Sliding Mode Control
 
-$$
 \text{We may introduce the following non-singular sliding surfaces, for } i=1,3,5,7,9,11: \\
+$$
 \begin{aligned}
 s_i = e_i + b_i |e_i|^{\lambda_i} \operatorname{sign}(e_i) + b_i' |\dot{e}_i|^{\lambda_i'} \operatorname{sign}(\dot{e}_i)
 \begin{aligned}
