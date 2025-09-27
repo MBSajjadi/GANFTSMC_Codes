@@ -175,16 +175,16 @@ where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting ma
 
 ## 📊 Results
 
-### 1 Trajectory Tracking
+### 1. Trajectory Tracking
 
 * GANFTSMC achieves accurate path tracking even under rotor deviation.
 * NFTSMC shows larger overshoots.
 
-### 2 Control Efforts
+### 2. Control Efforts
 
 * GANFTSMC reduces input magnitudes while maintaining robustness.
 
-### 3 Fault Tolerance
+### 3. Fault Tolerance
 
 * Trajectory tracking and estimation errors converge to zero in a finite time for DOBTSMC and the proposed GANFTSMC+RBFNN. Still, the reaching time is faster in GANFTSMC.
 
