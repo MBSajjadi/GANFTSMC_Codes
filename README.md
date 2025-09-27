@@ -58,7 +58,7 @@ $$
 
 ------------------
 
-## 🎯 Terminal Sliding Mode Control
+## 🎯 Non-singular Terminal Sliding Mode Control
 
 We may introduce the following non-singular sliding surfaces, for $i=1,3,5,7,9,11$:
 
