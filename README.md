@@ -1,4 +1,4 @@
-Fault-Tolerant Quadrotor Control Using Genetic Algorithm Optimized Terminal Sliding Mode Control
+Fault-Tolerant Quadrotor Control Using Genetic Algorithm Optimized Terminal Sliding Mode Control $x^2=\dot{x}$
 
 This repository presents the design and implementation of a Fault-Tolerant Terminal Sliding Mode Control (TSMC) for a quadrotor UAV subject to structural anomalies, specifically rotor thrust deviation faults.
 
