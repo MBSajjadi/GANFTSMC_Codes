@@ -107,7 +107,7 @@ $$
 For the robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added to the equivalent one:
 
 $$
-u_{k,sw} = - g_{kk}^{-1}\left(\eta_k s_i + K_k \,\text{sign}(s_i)\right)
+u_{k,sw} = - g_{kk}^{-1}\left(\eta_k s_i + K_k \text{sign}(s_i)\right)
 $$
 
 where $\eta_k$ and $K_k$ are positive constants.  
