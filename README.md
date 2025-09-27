@@ -30,6 +30,7 @@ $$
 
 where:
 
+$$
 \begin{align}
 f_{stx} &= \frac{b}{m} \omega_2^2 \left( f_1 \cos\theta \cos\psi + f_2 (\cos\psi \sin\phi \sin\theta - \cos\phi \sin\psi) + f_3 (\sin\phi \sin\psi + \cos\phi \cos\psi \sin\theta) \right) \\
 f_{sty} &= \frac{b}{m} \omega_2^2 \left( f_1 \cos\theta \sin\psi + f_2 (\sin\psi \sin\phi \sin\theta + \cos\phi \sin\psi) + f_3 (-\sin\phi \cos\psi + \cos\phi \sin\psi \sin\theta) \right) \\
@@ -38,9 +39,11 @@ f_{st\phi} &= \frac{J_{TP}}{I_x} \omega_2 (f_2 \dot{\psi} - f_3 \dot{\theta}) + 
 f_{st\theta} &= \frac{J_{TP}}{I_y} \omega_2 (f_1 \dot{\psi} + f_3 \dot{\phi}) + \frac{1}{I_y} \omega_2^2 (b l f_5 - f_2 d) \\
 f_{st\psi} &= -\frac{J_{TP}}{I_z} \omega_2 (f_2 \dot{\phi} + f_1 \dot{\theta}) - \frac{1}{I_z} \omega_2^2 (b l f_6 + f_3 d)
 \end{align}
+$$
 
 and fault related terms regarding the fault angles $\alpha$, $\beta$, and $\gamma$ are expressed as follows:
 
+$$
 \begin{align}
 f_1 &= s_\alpha s_\gamma \\
 f_2 &= -c_\gamma s_\beta + s_\gamma c_\beta c_\alpha \\
@@ -49,6 +52,7 @@ f_4 &= f_2 s_\beta - (1 + f_3) c_\beta + 1 \\
 f_5 &= f_1 s_\beta \\
 f_6 &= f_1 c_\beta
 \end{align}
+$$
 
 ------------------
 
