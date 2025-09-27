@@ -126,12 +126,10 @@ $$
 GA is an optimization method based on the principles of natural selection and evolutionary biology. It involves the process of biological evolution by iteratively improving a population of candidate solutions to address a given optimization problem. The minimization of the candidate cost function is utilized in this paper to find the optimal switching and fast parameters of NFTSMC:
 
 $$
-J = \int_0^t \Big( \tau\, e^T P_1 e + u^T P_2 u \Big) \mathrm{d}\tau
+J = \int_0^t \Big( \tau e^T P_1 e + u^T P_2 u \Big) \mathrm{d}\tau
 $$
 
-where e is the vector of tracking errors, and $P_1$ and $P_2$ are weighting matrices, respectively. The optimization process begins by randomly defining an initial population of potential solutions where each individual denotes a unique set of controller parameters. The individuals are then evaluated based on the cost function, which quantifies the controller's performance. The individuals with smaller values are to be selected for a reproduction process that involves crossover and mutation to generate offspring. New offspring form the new population for the next generation, and the optimization process will be repeated. This cycle of evolution continues until convergence is achieved, indicating that the optimal controller parameters are obtained that best minimize the cost function. The optimal values of fast and switching control parameters obtained by GA are $\eta=0.512$ and $K=8.242$, respectively.
-
-
+where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting matrices, respectively. The optimization process begins by randomly defining an initial population of potential solutions where each individual denotes a unique set of controller parameters. The individuals are then evaluated based on the cost function, which quantifies the controller's performance. The individuals with smaller values are to be selected for a reproduction process that involves crossover and mutation to generate offspring. New offspring form the new population for the next generation, and the optimization process will be repeated. This cycle of evolution continues until convergence is achieved, indicating that the optimal controller parameters are obtained that best minimize the cost function. The optimal values of fast and switching control parameters obtained by GA are $\eta=0.512$ and $K=8.242$, respectively.
 
 ----------------
 
