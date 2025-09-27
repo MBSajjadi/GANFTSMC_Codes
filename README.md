@@ -65,7 +65,7 @@ $$
 We may introduce the following non-singular sliding surfaces, for $i=1,3,5,7,9,11$:
 
 $$
-s_i = e_i + b_i \text{sign}^{\lambda_i}(e_i) + b_i' \,\text{sign}^{\lambda_i'}(\dot{e}_i)
+s_i = e_i + b_i \text{sign}^{\lambda_i}(e_i) + b_i' \text{sign}^{\lambda_i'}(\dot{e}_i)
 $$
 
 where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$.  
