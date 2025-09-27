@@ -95,9 +95,8 @@ $$
 The derivatives of the sliding surfaces can then be calculated, for $k=1,2,3,4,5,6$:
 
 $$
-\dot{s}_i =
-\dot{e}_i \left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)
-+ b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1}
+\dot{s}_i =\dot{e}_i \left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)+b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1}
+
 \left(f_j + g_{kk} u_k + f_{stj} - \dot{X}_{d(i+1)} \right)
 $$
 
