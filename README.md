@@ -111,10 +111,10 @@ u_{k,sw} = - g_{kk}^{-1}\left(\eta_k s_i + K_k \,\text{sign}(s_i)\right)
 $$
 
 where $\eta_k$ and $K_k$ are positive constants.  
-Hence, the final nominal control law may be derived:
+Hence, the final control law may be derived with the substitution of the estimated faults obtained by the RBFNN:
 
 $$
-u_k = - g_{kk}^{-1} \Big[b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)+ f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \,\text{sign}(s_i)\Big]
+u_k = - g_{kk}^{-1} \Big[b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \text{sign}(\dot{e}_i)\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)+ f_j+\hat{\omega}_ih_i - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \,\text{sign}(s_i)\Big]
 $$
 
 
