@@ -61,42 +61,73 @@ $$
 ## 🎯 Terminal Sliding Mode Control
 
 $$
-We may introduce the following non-singular sliding surfaces, for $i = 1, 3, 5, 7, 9, 11$:
-\begin{aligned}
-s_i = e_i + b_i \, \text{sign}^{\lambda_i}(e_i) + b_i' \, \text{sign}^{\lambda_i'}(\dot{e}_i)
-\end{aligned}
-where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$. The tracking errors and their dynamics can be defined:
+\text{We may introduce the following non-singular sliding surfaces, for } i=1,3,5,7,9,11: \\
+s_i = e_i + b_i |e_i|^{\lambda_i} \operatorname{sign}(e_i) + b_i' |\dot{e}_i|^{\lambda_i'} \operatorname{sign}(\dot{e}_i)
+$$
 
+where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$.
+
+---
+
+The tracking errors and their dynamics can be defined:
+$$
 \begin{aligned}
 e_i &= X_i - X_{di} \\
 \dot{e}_i &= \dot{X}_i - X_{d(i+1)} \\
 \ddot{e}_i &= \ddot{X}_i - \dot{X}_{d(i+1)}
 \end{aligned}
-
-in which:
-\begin{aligned}
-X_{di} = \begin{bmatrix} x_d & \dot{x}_d & y_d & \dot{y}_d & z_d & \dot{z}_d & \phi_d & \dot{\phi}_d & \theta_d & \dot{\theta}_d & \psi_d & \dot{\psi}_d \end{bmatrix}^T
-\end{aligned}
-
-The derivatives of sliding surfaces can be then calculated, for $k = 1, 2, 3, 4, 5, 6$:
-\begin{aligned}
-\dot{s}_i = \dot{e}_i \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) + b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1} \left(f_j + g_{kk} u_k + f_{\text{st}j} - \dot{X}_{d(i+1)}\right)
-\end{aligned}
-
-Since the fault vector $\mathbf{f}_{\text{st}}$ is unknown, the nominal equivalent control law may be obtained, for $j = 2, 4, 6, 8, 10, 12$:
-\begin{aligned}
-\dot{s}_i = 0 \quad \Rightarrow \quad u_{k_{\text{eq}}} = -g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2 - \lambda_i'} \text{sign}(\dot{e}_i) \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) - g_{kk}^{-1} \left(f_j - \dot{X}_{d(i+1)}\right)
-\end{aligned}
-
-For the robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added to the equivalent one:
-\begin{aligned}
-u_{k_{\text{sw}}} = -g_{kk}^{-1} \left(\eta_k s_i + K_k \, \text{sign}(s_i)\right)
-\end{aligned}
-where $\eta_k$ and $K_k$ are positive constants. Hence, the final nominal control law may be derived:
-\begin{aligned}
-u_k = -g_{kk}^{-1} \left[ b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2 - \lambda_i'} \text{sign}(\dot{e}_i) \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) + f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \, \text{sign}(s_i) \right]
-\end{aligned}
 $$
+
+with
+$$
+X_{di} =
+\begin{bmatrix}
+x_d & \dot{x}_d & y_d & \dot{y}_d & z_d & \dot{z}_d &
+\phi_d & \dot{\phi}_d & \theta_d & \dot{\theta}_d & \psi_d & \dot{\psi}_d
+\end{bmatrix}^T
+$$
+
+---
+
+The derivatives of sliding surfaces can then be calculated, for $k=1,2,3,4,5,6$:
+$$
+\dot{s}_i = \dot{e}_i \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right)
++ b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1}
+\left(f_j + g_{kk} u_k + f_{\text{st},j} - \dot{X}_{d(i+1)}\right)
+$$
+
+---
+
+Since the fault vector $\mathbf{f}_{\text{st}}$ is unknown, the nominal equivalent control law may be obtained, for $j=2,4,6,8,10,12$:
+$$
+\dot{s}_i = 0 \quad \Rightarrow \quad
+u_{k_{\text{eq}}} = -g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1}
+|\dot{e}_i|^{2 - \lambda_i'} \operatorname{sign}(\dot{e}_i)
+\left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right)
+- g_{kk}^{-1} \left(f_j - \dot{X}_{d(i+1)}\right)
+$$
+
+---
+
+For robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added:
+$$
+u_{k_{\text{sw}}} = -g_{kk}^{-1} \left(\eta_k s_i + K_k \operatorname{sign}(s_i)\right)
+$$
+
+where $\eta_k$ and $K_k$ are positive constants.
+
+---
+
+Hence, the final nominal control law may be derived:
+$$
+u_k = -g_{kk}^{-1} \Big[
+b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2 - \lambda_i'} \operatorname{sign}(\dot{e}_i)
+\left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right)
++ f_j - \dot{X}_{d(i+1)}
++ \eta_k s_i + K_k \operatorname{sign}(s_i)
+\Big]
+$$
+
 
 ## 3. Optimization with Genetic Algorithm (GA)
 
