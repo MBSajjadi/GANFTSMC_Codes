@@ -143,7 +143,7 @@ where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting ma
 
 ------
 
-## 💻 How to Use
+## ▶️ How to Use
 
 ### 1. Clone this repository:
 
@@ -155,7 +155,7 @@ where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting ma
 
 ### 3. Run `ga` and change settings (if needed) to obtain the optimal control parameters.
 
-### 3. Run the following main scripts:
+### 4. Run the following main scripts:
 
    * `Main_RBFFNN_GANFTSMC.m` → optimized controller simulation.
    * `PlotComparedResults_GANFTSMC_NFTSMC.m` → comparison plots.
