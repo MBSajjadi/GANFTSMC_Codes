@@ -143,16 +143,28 @@ where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting ma
 
 ------
 
-## 💻 Simulation Codes
+## 💻 How to Use
 
-The repository provides several simulation files:
+### 1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/MBSajjadi/GANFTSMC_Codes.git
+   ```
+
+### 2. Open MATLAB R2022b or newer versions.
+
+### 3. Run the following main scripts:
+
+   * `Main_RBFFNN_GANFTSMC.m` → optimized controller simulation.
+   * `PlotComparedResults_GANFTSMC_NFTSMC.m` → comparison plots.
+   * `Final_SecondTrajectory.m` → disturbance observer-based TSMC.
 
 * **Main_RBFFNN_GANFTSMC.m**
-  Runs the optimized **RBFNN + GA-TSMC** controller.
-  Outputs system states and **3D trajectory** of the faulty quadrotor.
+  Runs the optimized **RBFNN + GANFTSMC** controller.
+  Outputs system states, control signals, error signals, and **3D trajectory** of the faulty quadrotor.
 
 * **PlotComparedResults_GANFTSMC_NFTSMC.m**
-  Compares **GANFTSMC** with **standard NFTSMC**.
+  Compares the outcomes of the proposed **RBFNN + GANFTSMC** with an **NFTSMC**, specially the angular velocities of the rotors and torques.
 
 * **Final_SecondTrajectory.m**
   Shows results of **Disturbance-Observer-Based TSMC** for additional comparison.
@@ -172,24 +184,7 @@ The repository provides several simulation files:
 
 ### 3 Fault Tolerance
 
-* Tracking errors converge to zero in finite time despite **structural faults**.
-
----
-
-## 📝 How to Use
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/MBSajjadi/GANFTSMC_Codes.git
-   ```
-
-2. Open MATLAB.
-
-3. Run the following main scripts:
-
-   * `Main_RBFFNN_GANFTSMC.m` → optimized controller simulation.
-   * `PlotComparedResults_GANFTSMC_NFTSMC.m` → comparison plots.
-   * `Final_SecondTrajectory.m` → disturbance observer-based TSMC.
+* Trajectory tracking and estimation errors converge to zero in a finite time for DOBTSMC and the proposed GANFTSMC+RBFNN. Still, the reaching time is faster in GANFTSMC.
 
 ----------------
+
