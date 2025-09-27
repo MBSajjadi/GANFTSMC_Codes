@@ -55,7 +55,7 @@ f_6 &= f_1 \cos\beta
 $$
 
 ![Quadrotor Fault Scenario](figures/Picture1.svg)
-*Fault Demonstration*
+
 ------------------
 
 ## 2. Terminal Sliding Mode Control (TSMC)
