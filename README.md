@@ -101,7 +101,7 @@ $$
 Since the fault vector $f_{st}$ is unknown, the nominal equivalent control law may be obtained, for $j=2,4,6,8,10,12$:
 
 $$
-u_{k,eq} =-g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1}|\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)-g_{kk}^{-1}\left(f_j -\dot{X}_{d(i+1)}\right)
+u_{k,eq} =-g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1}|\dot{e}_i|^{2-\lambda_i'} \text{sign}(\dot{e}_i)\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)-g_{kk}^{-1}\left(f_j -\dot{X}_{d(i+1)}\right)
 $$
 
 For the robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added to the equivalent one:
@@ -114,14 +114,8 @@ where $\eta_k$ and $K_k$ are positive constants.
 Hence, the final nominal control law may be derived:
 
 $$
-u_k = - g_{kk}^{-1} \Big[
-b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)
-\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)
-+ f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \,\text{sign}(s_i)
-\Big]
+u_k = - g_{kk}^{-1} \Big[b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)+ f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \,\text{sign}(s_i)\Big]
 $$
-
-
 
 
 ## 3. Optimization with Genetic Algorithm (GA)
