@@ -1,22 +1,14 @@
 # Genetic Algorithm-Based Non-singular Fast Terminal Sliding Mode Control of a Quadrotor with Thrust and Mechanical Link Deflection Fault
 
-This repository presents the design and implementation of a **Fault-Tolerant Terminal Sliding Mode Control (TSMC)** for a quadrotor UAV subject to **structural anomalies**, specifically **rotor thrust deviation faults**.
+This repository presents the design and implementation of an **Optimal Fault-Tolerant Terminal Sliding Mode Control** for a quadrotor UAV subject to **Structural faults**, specifically **rotor thrust and mechanical link deviation**.
 
-The control scheme integrates a **Genetic Algorithm (GA)** to optimize the controller parameters, reducing overshoot and minimizing control efforts. Additionally, comparisons with standard **Nonsingular Fast Terminal Sliding Mode Control (NFTSMC)** and **Disturbance-Observer-Based TSMC** are provided.
+The control scheme integrates a **Genetic Algorithm (GA)** optimization and **Radial-Basis-Function Neural Networks (RBFNN)** to optimize the switching and fast controller parameters, to reduce overshoots, to minimuize control efforts, and to estimate the time-varying behavior of fault terms. Comparative simulation studies with a **Nonsingular Fast Terminal Sliding Mode Control (NFTSMC)** and **Disturbance-Observer-Based TSMC** are provided, as wel.
 
---------------------------
+---------------------------------------
 
-## 1. Introduction
+## 1. System Modeling
 
-Quadrotors are widely used in industrial, surveillance, and autonomous operations. However, they are vulnerable to **structural anomalies** such as rotor deviations, which may degrade performance and stability.
-
-This project introduces a **robust control strategy** based on **Terminal Sliding Mode Control (TSMC)** and optimizes its gains using a **Genetic Algorithm** to ensure accurate tracking under faulty conditions.
-
----
-
-## 2. System Modeling
-
-### 2.1 Quadrotor Dynamics
+### 1.1 Quadrotor Dynamics
 
 The nonlinear dynamics of the quadrotor are described as:
 
@@ -41,7 +33,7 @@ where:
 
 ---
 
-### 2.2 Fault Modeling
+### 1.2 Fault Modeling
 
 A **rotor deviation fault** is modeled as:
 
@@ -58,9 +50,9 @@ This represents **thrust loss** or **structural misalignment**.
 
 ---
 
-## 3. Terminal Sliding Mode Control (TSMC)
+## 2. Terminal Sliding Mode Control (TSMC)
 
-### 3.1 Sliding Surface
+### 2.1 Sliding Surface
 
 Tracking error:
 
@@ -78,7 +70,7 @@ with $0 < \alpha_i < 1$ ensuring **finite-time convergence**.
 
 ---
 
-### 3.2 Control Law
+### 2.2 Control Law
 
 The TSMC control input is designed as:
 
@@ -91,7 +83,7 @@ $$
 
 ---
 
-## 4. Optimization with Genetic Algorithm (GA)
+## 3. Optimization with Genetic Algorithm (GA)
 
 To reduce overshoots and control efforts, the **Genetic Algorithm** optimizes controller parameters $\eta$ and $K$.
 
@@ -108,7 +100,7 @@ To reduce overshoots and control efforts, the **Genetic Algorithm** optimizes co
 
 ---
 
-## 5. Simulation Codes
+## 4. Simulation Codes
 
 The repository provides several simulation files:
 
@@ -124,18 +116,18 @@ The repository provides several simulation files:
 
 ---
 
-## 6. Results
+## 5. Results
 
-### 6.1 Trajectory Tracking
+### 5.1 Trajectory Tracking
 
 * GANFTSMC achieves accurate path tracking even under rotor deviation.
 * NFTSMC shows larger overshoots.
 
-### 6.2 Control Efforts
+### 5.2 Control Efforts
 
 * GANFTSMC reduces input magnitudes while maintaining robustness.
 
-### 6.3 Fault Tolerance
+### 5.3 Fault Tolerance
 
 * Tracking errors converge to zero in finite time despite **structural faults**.
 
@@ -143,7 +135,7 @@ The repository provides several simulation files:
 
 ---
 
-## 7. Repository Structure
+## 6. Repository Structure
 
 ```
 ├── src/                        # MATLAB or Python source files
@@ -154,7 +146,7 @@ The repository provides several simulation files:
 
 ---
 
-## 8. How to Use
+## 7. How to Use
 
 1. Clone this repository:
 
@@ -170,16 +162,4 @@ The repository provides several simulation files:
    * `PlotComparedResults_GANFTSMC_NFTSMC.m` → comparison plots.
    * `Final_SecondTrajectory.m` → disturbance observer-based TSMC.
 
----
-
-## 9. References
-
-* Utkin, V. I. *Sliding Modes in Control and Optimization*. Springer, 1992.
-* Edwards, C., Spurgeon, S. K. *Sliding Mode Control: Theory and Applications*. Taylor & Francis, 1998.
-* Recent works on Fault-Tolerant Control of UAVs.
-
----
-
-## 10. License
-
-This project is licensed under the MIT License.
+----------------
