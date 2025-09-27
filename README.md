@@ -58,38 +58,45 @@ $$
 
 ------------------
 
-## 2. Terminal Sliding Mode Control (TSMC)
-
-### 2.1 Sliding Surface
-
-Tracking error:
+## 🎯 Terminal Sliding Mode Control
 
 $$
-e_i = x_i - x_{i,d}, \quad i \in {x,y,z,\phi,\theta,\psi}
+We may introduce the following non-singular sliding surfaces, for $i = 1, 3, 5, 7, 9, 11$:
+\[
+s_i = e_i + b_i \, \text{sign}^{\lambda_i}(e_i) + b_i' \, \text{sign}^{\lambda_i'}(\dot{e}_i)
+\]
+where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$. The tracking errors and their dynamics can be defined:
+\[
+\begin{aligned}
+e_i &= X_i - X_{di} \\
+\dot{e}_i &= \dot{X}_i - X_{d(i+1)} \\
+\ddot{e}_i &= \ddot{X}_i - \dot{X}_{d(i+1)}
+\end{aligned}
+\]
+in which:
+\[
+X_{di} = \begin{bmatrix} x_d & \dot{x}_d & y_d & \dot{y}_d & z_d & \dot{z}_d & \phi_d & \dot{\phi}_d & \theta_d & \dot{\theta}_d & \psi_d & \dot{\psi}_d \end{bmatrix}^T
+\]
+
+The derivatives of sliding surfaces can be then calculated, for $k = 1, 2, 3, 4, 5, 6$:
+\[
+\dot{s}_i = \dot{e}_i \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) + b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1} \left(f_j + g_{kk} u_k + f_{\text{st}j} - \dot{X}_{d(i+1)}\right)
+\]
+
+Since the fault vector $\mathbf{f}_{\text{st}}$ is unknown, the nominal equivalent control law may be obtained, for $j = 2, 4, 6, 8, 10, 12$:
+\[
+\dot{s}_i = 0 \quad \Rightarrow \quad u_{k_{\text{eq}}} = -g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2 - \lambda_i'} \text{sign}(\dot{e}_i) \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) - g_{kk}^{-1} \left(f_j - \dot{X}_{d(i+1)}\right)
+\]
+
+For the robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added to the equivalent one:
+\[
+u_{k_{\text{sw}}} = -g_{kk}^{-1} \left(\eta_k s_i + K_k \, \text{sign}(s_i)\right)
+\]
+where $\eta_k$ and $K_k$ are positive constants. Hence, the final nominal control law may be derived:
+\[
+u_k = -g_{kk}^{-1} \left[ b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2 - \lambda_i'} \text{sign}(\dot{e}_i) \left(1 + b_i \lambda_i |e_i|^{\lambda_i - 1}\right) + f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \, \text{sign}(s_i) \right]
+\]
 $$
-
-Terminal sliding surface:
-
-$$
-s_i = e_i + c_i |e_i|^{\alpha_i} ,\text{sign}(e_i)
-$$
-
-with $0 < \alpha_i < 1$ ensuring **finite-time convergence**.
-
----
-
-### 2.2 Control Law
-
-The TSMC control input is designed as:
-
-$$
-u_i = u_{eq,i} - K_i , \text{sign}(s_i)
-$$
-
-* $u_{eq,i}$ = equivalent control,
-* $K_i > 0$ = switching gain ensuring robustness.
-
----
 
 ## 3. Optimization with Genetic Algorithm (GA)
 
