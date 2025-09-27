@@ -62,7 +62,9 @@ $$
 
 $$
 \text{We may introduce the following non-singular sliding surfaces, for } i=1,3,5,7,9,11: \\
+\begin{aligned}
 s_i = e_i + b_i |e_i|^{\lambda_i} \operatorname{sign}(e_i) + b_i' |\dot{e}_i|^{\lambda_i'} \operatorname{sign}(\dot{e}_i)
+\begin{aligned}
 $$
 
 where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$.
