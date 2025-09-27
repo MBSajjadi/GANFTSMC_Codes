@@ -17,14 +17,14 @@ The Assumptions regarding the mathematical modeling are described as follows:
 
 The deflections from vertical directions add additional nonlinear terms to the system dynamics mathematically expressed as:
 
-$
-		\ddot{x} &= \left( s_{\phi}s_{\psi} + c_{\phi} s_{\theta} c_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{x}+u_{fx} \\
-		\ddot{y} &= \left( -s_{\phi} c_{\psi} + c_{\phi} s_{\theta} s_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{y}+u_{fy} \\
-		\ddot{z} &= -g + \left( c_{\phi} c_{\theta} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{z}+u_{fz} \\
-		\ddot{\phi} &= \left(\frac{I_y - I_z}{I_x}\right) \dot{\theta} \dot{\psi} + \frac{J_{TP}}{I_x} \dot{\theta} \omega^* + \frac{u_\phi}{I_x} - \frac{K_tL}{I_x} \dot{\phi}+u_{f\phi} \\
-		\ddot{\theta} &= \left(\frac{I_z - I_x}{I_y}\right) \dot{\phi} \dot{\psi} - \frac{J_{TP}}{I_y} \dot{\phi} \omega^* + \frac{u_\theta}{I_y} - \frac{k_tL}{I_y} \dot{\theta}+u_{f\theta} \\
-		\ddot{\psi} &= \left(\frac{I_x - I_y}{I_z}\right) \dot{\phi} \dot{\theta} + \frac{u_\psi}{I_z} - \frac{k_tL}{I_z} \dot{\psi}+u_{f\psi}
-$
+$$
+	\ddot{x} &= \left( s_{\phi}s_{\psi} + c_{\phi} s_{\theta} c_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{x}+u_{fx} \\
+	\ddot{y} &= \left( -s_{\phi} c_{\psi} + c_{\phi} s_{\theta} s_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{y}+u_{fy} \\
+	\ddot{z} &= -g + \left( c_{\phi} c_{\theta} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{z}+u_{fz} \\
+	\ddot{\phi} &= \left(\frac{I_y - I_z}{I_x}\right) \dot{\theta} \dot{\psi} + \frac{J_{TP}}{I_x} \dot{\theta} \omega^* + \frac{u_\phi}{I_x} - \frac{K_tL}{I_x} \dot{\phi}+u_{f\phi} \\
+	\ddot{\theta} &= \left(\frac{I_z - I_x}{I_y}\right) \dot{\phi} \dot{\psi} - \frac{J_{TP}}{I_y} \dot{\phi} \omega^* + \frac{u_\theta}{I_y} - \frac{k_tL}{I_y} \dot{\theta}+u_{f\theta} \\
+	\ddot{\psi} &= \left(\frac{I_x - I_y}{I_z}\right) \dot{\phi} \dot{\theta} + \frac{u_\psi}{I_z} - \frac{k_tL}{I_z} \dot{\psi}+u_{f\psi}
+$$
 
 --------
 
