@@ -121,7 +121,7 @@ $$
 
 ---------------
 
-## Optimization
+## 🚀 Optimization
 
 GA is an optimization method based on the principles of natural selection and evolutionary biology. It involves the process of biological evolution by iteratively improving a population of candidate solutions to address a given optimization problem. The minimization of the candidate cost function is utilized in this paper to find the optimal switching and fast parameters of NFTSMC:
 
@@ -133,22 +133,17 @@ where $e$ is the vector of tracking errors, and $P_1$ and $P_2$ are weighting ma
 
 ----------------
 
-## 🌟 Control Algorithm
+## 🛠️ Setup
 
-* **Cost Function:** weighted sum of tracking error and control effort.
+* **Cost Function:** weighted sum of tracking errors and control inputs, with $P_1=diag([1,1,1,1,1,1])$, $P_2=diag([10,10,10,10,10,10])$.
 * **Simulation Time:** 50 seconds.
 * **Sampling Time:** $T_s = 0.001$ s.
-* **Process:**
+* **Fault Angles:** $\alpha=20^{\circ}$, $\beta=10^{\circ}$, $\gamma=30^{\circ}$.
+* **Initial Conditions:** $X_0=[3,0,1,0,1,0,0,0,0,0,0,0]^T$.
 
-  1. GA generates a population of candidate parameters.
-  2. Each candidate is evaluated by running the simulation.
-  3. Higher-cost candidates are eliminated.
-  4. Crossover and mutation generate new parameters.
-  5. Optimal $\eta$ and $K$ are selected after convergence.
+------
 
----
-
-## 4. Simulation Codes
+## 💻 Simulation Codes
 
 The repository provides several simulation files:
 
@@ -164,42 +159,29 @@ The repository provides several simulation files:
 
 ---
 
-## 5. Results
+## 📊 Results
 
-### 5.1 Trajectory Tracking
+### 1 Trajectory Tracking
 
 * GANFTSMC achieves accurate path tracking even under rotor deviation.
 * NFTSMC shows larger overshoots.
 
-### 5.2 Control Efforts
+### 2 Control Efforts
 
 * GANFTSMC reduces input magnitudes while maintaining robustness.
 
-### 5.3 Fault Tolerance
+### 3 Fault Tolerance
 
 * Tracking errors converge to zero in finite time despite **structural faults**.
 
-(Plots and figures are included in the `figures/` folder.)
-
 ---
 
-## 6. Repository Structure
-
-```
-├── src/                        # MATLAB or Python source files
-├── simulations/                # Simulation scripts
-├── figures/                    # Plots and figures
-├── README.md                   # Project documentation
-```
-
----
-
-## 7. How to Use
+## 📝 How to Use
 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/YourUsername/Quadrotor-TSMC-Fault-Tolerant.git
+   git clone https://github.com/MBSajjadi/GANFTSMC_Codes.git
    ```
 
 2. Open MATLAB.
