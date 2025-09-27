@@ -62,63 +62,72 @@ $$
 
 We may introduce the following non-singular sliding surfaces, for $i=1,3,5,7,9,11$:
 
-\begin{equation}
-s_i = e_i + b_i \, \text{sign}^{\lambda_i}(e_i) + b_i' \, \text{sign}^{\lambda_i'}(\dot{e}_i)
-\end{equation}
+$$
+s_i = e_i + b_i \,\text{sign}^{\lambda_i}(e_i) + b_i' \,\text{sign}^{\lambda_i'}(\dot{e}_i)
+$$
 
 where $b_i' > 0$, $b_i > 0$, $1 < \lambda_i' < 2$, and $\lambda_i > 1$.  
 The tracking errors and their dynamics can be defined as:
 
-\begin{align}
-e_i &= X_i - X_{di} \\
-\dot{e}_i &= \dot{X}_i - X_{d(i+1)} 
-\\
-\ddot{e}_i &= \ddot{X}_i - \dot{X}_{d(i+1)}
-\end{align}
+$$
+e_i = X_i - X_{di}
+$$
+
+$$
+\dot{e}_i = \dot{X}_i - X_{d(i+1)}
+$$
+
+$$
+\ddot{e}_i = \ddot{X}_i - \dot{X}_{d(i+1)}
+$$
 
 in which:
 
-\begin{equation}
-X_{di} = 
+$$
+X_{di} =
 \begin{bmatrix}
-x_d & \dot{x}_d & y_d & \dot{y}_d & z_d & \dot{z}_d & 
-\phi_d & \dot{\phi}_d & \theta_d & \dot{\theta}_d & 
+x_d & \dot{x}_d & y_d & \dot{y}_d & z_d & \dot{z}_d &
+\phi_d & \dot{\phi}_d & \theta_d & \dot{\theta}_d &
 \psi_d & \dot{\psi}_d
 \end{bmatrix}^T
-\end{equation}
+$$
 
 The derivatives of the sliding surfaces can then be calculated, for $k=1,2,3,4,5,6$:
 
-\begin{equation}
-\dot{s}_i = \dot{e}_i \big(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1} \big) 
-+ b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1} \big(f_j + g_{kk} u_k + f_{stj} - \dot{X}_{d(i+1)} \big)
-\end{equation}
+$$
+\dot{s}_i =
+\dot{e}_i \left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)
++ b_i' \lambda_i' |\dot{e}_i|^{\lambda_i' - 1}
+\left(f_j + g_{kk} u_k + f_{stj} - \dot{X}_{d(i+1)} \right)
+$$
 
 Since the fault vector $f_{st}$ is unknown, the nominal equivalent control law may be obtained, for $j=2,4,6,8,10,12$:
 
-\begin{equation}
-\dot{s}_i = 0 
-\;\;\;\Rightarrow\;\;\;
-u_{k,eq} = -g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \, \text{sign}(\dot{e}_i) 
-\big(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1} \big)
-- g_{kk}^{-1} \big(f_j - \dot{X}_{d(i+1)} \big)
-\end{equation}
+$$
+u_{k,eq} =
+- g_{kk}^{-1} b_i'^{-1} \lambda_i'^{-1}
+|\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)
+\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)
+- g_{kk}^{-1}\left(f_j - \dot{X}_{d(i+1)}\right)
+$$
 
 For the robustness of the controller against unknown external faults and disturbances, the fast-switching control may be added to the equivalent one:
 
-\begin{equation}
-u_{k,sw} = -g_{kk}^{-1} \big( \eta_k s_i + K_k \, \text{sign}(s_i) \big)
-\end{equation}
+$$
+u_{k,sw} = - g_{kk}^{-1}\left(\eta_k s_i + K_k \,\text{sign}(s_i)\right)
+$$
 
-where $\eta_k$ and $K_k$ are positive constants. Hence, the final nominal control law may be derived:
+where $\eta_k$ and $K_k$ are positive constants.  
+Hence, the final nominal control law may be derived:
 
-\begin{equation}
-u_k = -g_{kk}^{-1} \Big[ 
-b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \, \text{sign}(\dot{e}_i) 
-\big(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1} \big)
-+ f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \, \text{sign}(s_i)
+$$
+u_k = - g_{kk}^{-1} \Big[
+b_i'^{-1} \lambda_i'^{-1} |\dot{e}_i|^{2-\lambda_i'} \,\text{sign}(\dot{e}_i)
+\left(1 + b_i \lambda_i |\dot{e}_i|^{\lambda_i - 1}\right)
++ f_j - \dot{X}_{d(i+1)} + \eta_k s_i + K_k \,\text{sign}(s_i)
 \Big]
-\end{equation}
+$$
+
 
 
 
