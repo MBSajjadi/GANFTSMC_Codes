@@ -12,7 +12,9 @@ During flight or maneuvering, a drone may inevitably experience structural damag
 The Assumptions regarding the mathematical modeling are described as follows:
 
 **Assumption 1.** The position of the center of mass is constant after the fault occurrence.
+
 **Assumption 2.** The symmetry of the moment of inertia will not change after the fault occurrence.
+
 **Assumption 3.** After the fault occurrence, the moment of inertia and the mass value of the drone will not change.
 
 The deflections from vertical directions add additional nonlinear terms to the system dynamics mathematically expressed as:
