@@ -1,4 +1,4 @@
-# Genetic Algorithm-Based Non-singular Fast Terminal Sliding Mode Control of a Quadrotor with Thrust and Mechanical Link Deflection Fault
+# 🚁 Genetic Algorithm-Based Non-singular Fast Terminal Sliding Mode Control of a Quadrotor with Thrust and Mechanical Link Deflection Fault
 
 This repository presents the design and implementation of an **Optimal Fault-Tolerant Terminal Sliding Mode Control** for a quadrotor UAV subject to **Structural faults**, specifically **rotor thrust and mechanical link deviation**.
 
@@ -6,49 +6,27 @@ The control scheme integrates a **Genetic Algorithm (GA)** optimization and **Ra
 
 ---------------------------------------
 
-## 1. System Modeling
+## ⚙️ Fault Describption and Dynamics
 
-### 1.1 Quadrotor Dynamics
+During flight or maneuvering, a drone may inevitably experience structural damage due to collisions with rigid objects, such as another UAV, a tree, or even an obstacle. Such incidents may cause one of the thrust forces of the drone to no longer operate in a vertical direction. It is important to emphasize that this collision does not necessarily degrade the motor efficiency but merely alters its orientation. The angles of deviation caused by such collision are demonstrated in Figure.
+The Assumptions regarding the mathematical modeling are described as follows:
 
-The nonlinear dynamics of the quadrotor are described as:
+**Assumption 1.** The position of the center of mass is constant after the fault occurrence.
+**Assumption 2.** The symmetry of the moment of inertia will not change after the fault occurrence.
+**Assumption 3.** After the fault occurrence, the moment of inertia and the mass value of the drone will not change.
 
-$$
-m \ddot{x} = -u_1 (\cos\phi \sin\theta \cos\psi + \sin\phi \sin\psi)
-$$
+The deflections from vertical directions add additional nonlinear terms to the system dynamics mathematically expressed as:
 
-$$
-m \ddot{y} = -u_1 (\cos\phi \sin\theta \sin\psi - \sin\phi \cos\psi)
-$$
+$
+		\ddot{x} &= \left( s_{\phi}s_{\psi} + c_{\phi} s_{\theta} c_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{x}+u_{fx} \\
+		\ddot{y} &= \left( -s_{\phi} c_{\psi} + c_{\phi} s_{\theta} s_{\psi} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{y}+u_{fy} \\
+		\ddot{z} &= -g + \left( c_{\phi} c_{\theta} \right) \frac{u_T}{m} - \frac{K_f}{m} \dot{z}+u_{fz} \\
+		\ddot{\phi} &= \left(\frac{I_y - I_z}{I_x}\right) \dot{\theta} \dot{\psi} + \frac{J_{TP}}{I_x} \dot{\theta} \omega^* + \frac{u_\phi}{I_x} - \frac{K_tL}{I_x} \dot{\phi}+u_{f\phi} \\
+		\ddot{\theta} &= \left(\frac{I_z - I_x}{I_y}\right) \dot{\phi} \dot{\psi} - \frac{J_{TP}}{I_y} \dot{\phi} \omega^* + \frac{u_\theta}{I_y} - \frac{k_tL}{I_y} \dot{\theta}+u_{f\theta} \\
+		\ddot{\psi} &= \left(\frac{I_x - I_y}{I_z}\right) \dot{\phi} \dot{\theta} + \frac{u_\psi}{I_z} - \frac{k_tL}{I_z} \dot{\psi}+u_{f\psi}
+$
 
-$$
-m \ddot{z} = u_1 \cos\phi \cos\theta - mg
-$$
-
-where:
-
-* $x, y, z$ → translational states,
-* $\phi, \theta, \psi$ → roll, pitch, and yaw angles,
-* $u_1$ → thrust input,
-* $m, g$ → mass and gravitational constant.
-
----
-
-### 1.2 Fault Modeling
-
-A **rotor deviation fault** is modeled as:
-
-$$
-u_i = (1 - \delta_i) u_i^*
-$$
-
-where:
-
-* $\delta_i$ = deviation factor of rotor $i$,
-* $u_i^*$ = nominal thrust of rotor $i$.
-
-This represents **thrust loss** or **structural misalignment**.
-
----
+--------
 
 ## 2. Terminal Sliding Mode Control (TSMC)
 
